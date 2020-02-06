@@ -1,4 +1,4 @@
-#Inspirobot API
+# Inspirobot API
 
 A Python3 api wrapper for [InspiroBot](https://inspirobot.me/)
 

@@ -1,0 +1,10 @@
+README.md
+setup.py
+inspirobot/__init__.py
+inspirobot/error.py
+inspirobot/flow.py
+inspirobot/generate.py
+insprio.egg-info/PKG-INFO
+insprio.egg-info/SOURCES.txt
+insprio.egg-info/dependency_links.txt
+insprio.egg-info/top_level.txt

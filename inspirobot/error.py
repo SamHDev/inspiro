@@ -1,0 +1,2 @@
+class InsprioBotError(Exception):
+    pass

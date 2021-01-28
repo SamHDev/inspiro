@@ -7,7 +7,7 @@ setuptools.setup(
     name="inspiro",
     version="0.0.1",
     author="SamHDev",
-    author_email="sam02h.huddart@gmail.com",
+    author_email="sam.fucked.up@samh.dev",
     description="Python3 API wrapper for InspiroBot",
     long_description=long_description,
     long_description_content_type="text/markdown",

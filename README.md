@@ -3,7 +3,7 @@
 A Python3 api wrapper for [InspiroBot](https://inspirobot.me/)
 
 ### Requirements
-* Python3.5 +
+* Python 3.5+
 * Requests
 
 ### Install
@@ -13,11 +13,11 @@ python3 -m pip install inspiro
 ```
 Using Git
 ```shell script
-python3 -m pip install git+<GIT_URL>
+python3 -m pip install git+https://github.com/SamHDev/inspiro.git
 ```
 Manual
 ```shell script
-git clone <GIT_URL> inspiro_python
+git clone https://github.com/SamHDev/inspiro.git inspiro_python
 cd inspiro_python
 python3 -m pip -r requirements.txt
 python3 -m pip install .
@@ -54,5 +54,4 @@ Does your work/school network use https interception? Mine sure does!
 import inspirobot
 inspirobot.HTTPS = False
 ```
-That should fix it
 

@@ -1,17 +1,17 @@
 Metadata-Version: 2.1
 Name: inspiro
-Version: 0.0.1
+Version: 0.0.2
 Summary: Python3 API wrapper for InspiroBot
-Home-page: https://github.com/samhdev/insprio
+Home-page: https://github.com/samhdev/inspiro
 Author: SamHDev
-Author-email: sam02h.huddart@gmail.com
+Author-email: sam.fucked.up@samh.dev
 License: UNKNOWN
 Description: # Inspirobot API
         
         A Python3 api wrapper for [InspiroBot](https://inspirobot.me/)
         
         ### Requirements
-        * Python3.5 +
+        * Python 3.5+
         * Requests
         
         ### Install
@@ -21,11 +21,11 @@ Description: # Inspirobot API
         ```
         Using Git
         ```shell script
-        python3 -m pip install git+<GIT_URL>
+        python3 -m pip install git+https://github.com/SamHDev/inspiro.git
         ```
         Manual
         ```shell script
-        git clone <GIT_URL> inspiro_python
+        git clone https://github.com/SamHDev/inspiro.git inspiro_python
         cd inspiro_python
         python3 -m pip -r requirements.txt
         python3 -m pip install .
@@ -62,7 +62,6 @@ Description: # Inspirobot API
         import inspirobot
         inspirobot.HTTPS = False
         ```
-        That should fix it
         
         
 Platform: UNKNOWN

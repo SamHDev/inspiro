@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="inspiro",
-    version="0.0.1",
+    version="0.0.2",
     author="SamHDev",
     author_email="sam.fucked.up@samh.dev",
     description="Python3 API wrapper for InspiroBot",

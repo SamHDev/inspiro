@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="insprio",
+    name="inspiro",
     version="0.0.1",
     author="SamHDev",
     author_email="sam02h.huddart@gmail.com",

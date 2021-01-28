@@ -11,7 +11,7 @@ setuptools.setup(
     description="Python3 API wrapper for InspiroBot",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/samhdev/insprio",
+    url="https://github.com/samhdev/inspiro",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

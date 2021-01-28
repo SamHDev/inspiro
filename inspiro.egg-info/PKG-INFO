@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
-Name: insprio
+Name: inspiro
 Version: 0.0.1
 Summary: Python3 API wrapper for InspiroBot
 Home-page: https://github.com/samhdev/insprio
 Author: SamHDev
 Author-email: sam02h.huddart@gmail.com
 License: UNKNOWN
-Description: #Inspirobot API
+Description: # Inspirobot API
         
         A Python3 api wrapper for [InspiroBot](https://inspirobot.me/)
         

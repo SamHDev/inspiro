@@ -2,6 +2,7 @@ import requests
 import re
 from .error import *
 from . import url
+from . import https as get_https
 
 
 def flow():
@@ -106,13 +107,16 @@ class InspiroBotFlowQuote:
         self.duration = raw["duration"]
         self.time = raw["time"]
         self.quote = raw["text"]
-        if image is not None:
-            self.image = InspiroBotFlowImage(image)
-        else:
-            self.image = None
+        self.image = InspiroBotFlowImage(image)
 
     def image_url(self, width=1600, height=900):
-        return "https://source.unsplash.com/{}/{}x{}".format(self.image, width, height)
+        """
+        :param width: the desired width of the image
+        :param height: the desired high of the image
+        :rtype: str
+        :return: the url of the image
+        """
+        return self.image.image_url(width, height)
 
     def __str__(self):
         return self.text
@@ -122,6 +126,10 @@ class InspiroBotFlowQuote:
 
     @property
     def text(self):
+        """
+        get the stripped/printable text of the quote
+        :rtype: str
+        """
         return re.sub("\[[\w ]+?\]", "", self.quote)
 
 
@@ -129,13 +137,85 @@ class InspiroBotFlowImage:
     def __init__(self, id):
         self.id = id
 
+
     @property
     def url(self):
+        """
+        get the image url as (1600 x 900)
+
+        :rtype: str or None
+        :return: the image url
+        """
         return self.image_url()
 
-    def image_url(self, width=1600, height=900):
-        r = requests.get("https://source.unsplash.com/{}/{}x{}".format(self.id, width, height))
+    def image_url(self, width=1600, height=900, https=None):
+        """
+        get the image url
+
+        if there is no image, this will return `None`
+
+        :param width: the desired width of the image
+        :param height: the desired high of the image
+        :param: weather to return the url with HTTPS
+        :rtype: str or None
+        :return: the url of the image
+        """
+        if self.id is None:
+            return None
+
+        if https is None:
+            https = get_https()
+
+        return "{}://source.unsplash.com/{}/{}x{}".format(
+            {True: "https", False: "http"}[https],
+            self.id, width, height
+        )
+
+    def redirected_image_url(self, width=1600, height=900):
+        """
+        get the redirected image url from unsplash
+
+        if there is no image, this will return `None`
+
+        **(PERFORMS A REQUEST)**
+
+        :param width: the desired width of the image
+        :param height: the desired high of the image
+        :rtype: str or None
+        :return: the full url of the image
+        """
+
+        if self.id is None:
+            return None
+
+        r = requests.get("{}://source.unsplash.com/{}/{}x{}".format(
+            {True: "https", False: "http"}[get_https()],
+            self.id, width, height)
+        )
         return r.url
 
+
     def read(self, width=1600, height=900):
+        """
+        get the bytes on the image
+
+        if there is no image, this will return `None`
+
+        **(PERFORMS A REQUEST)**
+
+        :param width: the desired width of the image
+        :param height: the desired high of the image
+        :rtype: Any or None
+        :return: the iamge data
+        """
+        if self.id is None:
+            return None
         return requests.get(self.image_url(width=width, height=height)).raw
+
+    def __repr__(self):
+        return "{}({})".format(self.__class__.__name__, self.id)
+
+    def __bool__(self):
+        return self is not None
+
+

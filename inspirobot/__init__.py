@@ -16,5 +16,11 @@ def url():
     return "{}://{}".format({True: "https", False: "http"}[HTTPS], ENDPOINT)
 
 
+def https(value = None):
+    global HTTPS
+    if value is not None:
+        HTTPS = value
+    return HTTPS
+
 from .flow import flow
 from .generate import generate
